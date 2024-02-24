@@ -10,8 +10,8 @@ namespace AbstractFactory
     {
         static async Task Main(string[] args)
         {
-            CoffeeFactory coffeFactory = new CoffeeFactory() { Name = "CoffeFactory" };
-            IceCreamFactory iceCreamFactory = new IceCreamFactory() { Name = "IceCreamFactory" };
+            CoffeeFactory coffeFactory = new CoffeeFactory();
+            IceCreamFactory iceCreamFactory = new IceCreamFactory();
 
             CoffeShop shop1 = new CoffeShop(coffeFactory);
 
@@ -20,6 +20,8 @@ namespace AbstractFactory
             ICoffee? coffee = shop1?.OrderCoffee(CoffeType.Latte);
 
             IIceCream? iceCream = shop1?.OrderIceCream(IceCreamType.SnickerdoodleChai);
+
+            IIceCream? iceCream1 = shop1?.OrderIceCream(IceCreamType.IcingOnTheCake);
         }
     }
 }

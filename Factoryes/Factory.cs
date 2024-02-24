@@ -9,6 +9,5 @@ namespace AbstractFactory.Factoryes
     public abstract class Factory
     {
         public FactoryType _factoryType { get; set; }
-        public string Name { get; init; } = "";
     }
 }

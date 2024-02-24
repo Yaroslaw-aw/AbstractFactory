@@ -19,15 +19,7 @@ namespace AbstractFactory.CoffeeShop
 
         public CoffeShop(params Factory[]? factoryes)
         {
-            _factoryes = new ConcurrentDictionary<FactoryType, Factory?>();
-
-            if (factoryes != null)
-                foreach (var factory in factoryes)
-                {
-                    if (!string.IsNullOrEmpty(factory.Name) && _factoryes != null)
-                        _factoryes[factory._factoryType] = factory;
-                }
-
+            InitializeFactoryes(factoryes);
             _myLogger = new ConsoleLogger();
         }
 
@@ -55,6 +47,17 @@ namespace AbstractFactory.CoffeeShop
             _myLogger.Log("Босс сделал мороженое");
 
             return iceCream;
+        }
+
+        private void InitializeFactoryes(params Factory[]? factoryes)
+        {
+            _factoryes = new ConcurrentDictionary<FactoryType, Factory?>();
+
+            if (factoryes != null)
+                foreach (var factory in factoryes)
+                {
+                    _factoryes[factory._factoryType] = factory;
+                }
         }
     }
 }
